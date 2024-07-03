@@ -6,12 +6,22 @@ import { SafeAreaView, StyleSheet, Text, View, TouchableOpacity, ScrollView } fr
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-const Stack = createStackNavigator();
-
 const mockStories = [
-    { id: '1', title: 'The Sleepy Owl', content: 'Once upon a time... Full story of The Sleepy Owl.' },
-    { id: '2', title: 'Dreamland Adventure', content: 'In a faraway land... Full story of Dreamland Adventure.' },
-    { id: '3', title: 'Moonlit Pond', content: 'On a calm night... Full story of Moonlit Pond.' },
+    {
+        id: '1',
+        title: 'The Sleepy Owl',
+        content: 'Once upon a time, in a deep dark forest, there lived a sleepy owl named Ollie. Ollie was different from other owls. He loved to sleep and would spend most of his nights snoozing away. One day, he met Lucy the firefly, who taught him the beauty of the night. Together, they journeyed through the forest, discovering wonders and making friends. Ollie realized that the night was not just for sleeping but for living too!'
+    },
+    {
+        id: '2',
+        title: 'Dreamland Adventure',
+        content: 'In a faraway land, there was a magical place called Dreamland. Every night, children all over the world would visit Dreamland in their dreams. One night, a little boy named Tim found himself on an adventure in Dreamland. He met talking stars, floating islands, and friendly dragons. With the help of his new friends, Tim overcame his fears and learned the power of courage and imagination. He woke up feeling braver and happier than ever before.'
+    },
+    {
+        id: '3',
+        title: 'Moonlit Pond',
+        content: 'On a calm night, Lily the frog sat by the Moonlit Pond. The pond was special, glowing under the moon’s gentle light. Lily often dreamt of exploring the world beyond the pond. One night, a wise turtle named Tuck offered to guide her. Together, they embarked on a journey filled with enchanting sights and sounds. Lily saw the grandeur of nature and felt a profound connection with every living thing. She returned home with a heart full of gratitude and wonder.'
+    },
 ];
 
 const StoryList = ({ navigation }) => {
@@ -21,7 +31,7 @@ const StoryList = ({ navigation }) => {
 
     return (
         <View style={styles.list}>
-            {mockStories.map(story => (
+            {mockStories.map((story) => (
                 <TouchableOpacity key={story.id} onPress={() => handlePress(story)} style={styles.storyContainer}>
                     <Text style={styles.storyTitle}>{story.title}</Text>
                     <Text style={styles.storyContent}>{story.content.substring(0, 30)}...</Text>
@@ -43,6 +53,9 @@ const StoryDetail = ({ route }) => {
         </SafeAreaView>
     );
 };
+
+// App.js
+const Stack = createStackNavigator();
 
 export default function App() {
     return (
@@ -69,10 +82,10 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#000',
+        padding: 20,
     },
     list: {
         flex: 1,
-        padding: 20,
         backgroundColor: '#000',
     },
     storyContainer: {
@@ -89,10 +102,6 @@ const styles = StyleSheet.create({
     },
     storyContent: {
         fontSize: 16,
-        color: '#bbb',
-    },
-    storyContent: {
-        fontSize: 18,
         color: '#bbb',
     },
 });
